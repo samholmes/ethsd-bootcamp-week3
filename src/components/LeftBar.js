@@ -31,7 +31,7 @@ export function LeftBar() {
 
       <div>
         <h4 id="calban">
-          <Link>log event calendar</Link>
+          <Link>eth sd event calendar</Link>
         </h4>
         <table className="cal">
           <tbody>
