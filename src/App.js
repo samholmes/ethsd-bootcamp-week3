@@ -1,7 +1,7 @@
 import { Alchemy, Network } from 'alchemy-sdk';
 
 import './App.css';
-import { Home } from './components/Home';
+import { HomeScreen } from './components/HomeScreen';
 import { useBlockQuery } from './hooks/useBlockQuery';
 
 // Refer to the README doc for more information about using API
@@ -24,7 +24,7 @@ function App() {
 
   if (blockQueryError) console.error(blockQueryError);
 
-  return <Home blocks={blocks} />;
+  return <HomeScreen blocks={blocks} />;
 }
 
 export default App;

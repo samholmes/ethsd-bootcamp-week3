@@ -3,7 +3,7 @@ import { LeftBar } from './LeftBar';
 import { RightBar } from './RightBar';
 import { TopBan } from './Topban';
 
-export function Home(props) {
+export function HomeScreen(props) {
   const { blocks } = props;
 
   return (
