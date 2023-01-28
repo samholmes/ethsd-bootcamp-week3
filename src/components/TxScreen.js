@@ -1,13 +1,13 @@
+import { useAlchemy } from '../hooks/useAlchemy';
 import { useAsyncValue } from '../hooks/useAsyncValue';
 import { Link } from './Link';
 
 export function TxScreen(props) {
-  const { txHash, alchemy, onClickExit, onClickNext, onClickPrev } = props;
+  const { txHash, onClickExit, onClickNext, onClickPrev } = props;
+  const alchemy = useAlchemy();
 
   const [tx, txError] = useAsyncValue(async () => {
-    const response = await alchemy.core.getTransactionReceipt(
-      txHash
-    );
+    const response = await alchemy.core.getTransactionReceipt(txHash);
     return response;
   }, []);
   if (txError) console.error(txError);
@@ -17,7 +17,7 @@ export function TxScreen(props) {
   const txTime = new Date(0);
   const txTimeAgo = '21 hours ago';
 
-  console.log(tx)
+  console.log(tx);
 
   return (
     <div className="posting bd-can-hover desktop w1024 cl-not-small-device cl-landscape">

@@ -1,6 +1,8 @@
 import { useAsyncValue } from './useAsyncValue';
+import {useAlchemy} from './useAlchemy'
 
-export const useBlockQuery = (alchemy) => {
+export const useBlockQuery = () => {
+  const alchemy = useAlchemy()
   const [blockNumber] = useAsyncValue(
     async () => await alchemy.core.getBlockNumber(),
     []
