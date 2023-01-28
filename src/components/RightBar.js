@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from './Link';
 
 import { LangLinks } from './mannequin';
 
@@ -44,9 +45,9 @@ export function RightBar() {
             {items.map((item) => {
               return (
                 <li className="s">
-                  <a href="#" onClick={handleClick}>
+                  <Link>
                     {item}
-                  </a>
+                  </Link>
                 </li>
               );
             })}
