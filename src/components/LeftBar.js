@@ -178,7 +178,7 @@ export function LeftBar() {
         </li>
         <li>
           <Link>
-            craig newmark
+            vitalik buterin
             <br />
             philanthropies
           </Link>
