@@ -45,12 +45,14 @@ function App() {
     window.location.hash = '';
   };
   const handleClickNext = () => {
-    const height = parseInt(query) + 1;
-    window.location.hash = '#' + height;
+    if (selectedBlock == null) return
+    const height = selectedBlock.number + 1;
+    window.location.hash = `#/block/${height}`;
   };
   const handleClickPrev = () => {
-    const height = parseInt(query) - 1;
-    window.location.hash = '#' + height;
+    if (selectedBlock == null) return
+    const height = selectedBlock.number - 1;
+    window.location.hash = `#/block/${height}`;
   };
 
   if (selectedBlock != null)
