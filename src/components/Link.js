@@ -6,7 +6,7 @@ export function Link(props) {
   }
 
   return (
-    <a href="##" onClick={preventClick}>
+    <a href="##" className={props.className} onClick={preventClick}>
       {props.children}
     </a>
   );

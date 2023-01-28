@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 export function LangLinks() {
   return (
     <div id="langlinks">
