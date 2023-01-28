@@ -13,7 +13,7 @@ export const useBlockQuery = (count) => {
     const blocks = [];
     const promises = [];
     for (let i = 0; i < count && blockNumber - i >= 0; ++i) {
-      promises.push(alchemy.core.getBlock(blockNumber - i));
+      promises.push(alchemy.core.getBlockWithTransactions(blockNumber - i));
     }
 
     const responses = await Promise.all(promises);

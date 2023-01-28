@@ -246,8 +246,8 @@ export function BlockScreen(props) {
               <h2>transactions</h2>
               {block.transactions.map((tx) => {
                 return (
-                  <Link href={`/tx/${tx}`}>
-                    <p>{tx}</p>
+                  <Link href={`/tx/${tx.hash}`} key={tx.hash}>
+                    <p>{tx.hash}</p>
                   </Link>
                 );
               })}
