@@ -9,7 +9,7 @@ const blockItems = [
   { blockNumber: 12345, hash: 'abcdef' }
 ];
 
-export function Skeleton() {
+export function Home() {
   return (
     <div className="wrapper">
       <section className="page-container">

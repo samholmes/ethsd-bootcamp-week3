@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 
 import './App.css';
-import { Skeleton } from './components/Skeleton';
+import { Home } from './components/Home';
 
 // Refer to the README doc for more information about using API
 // keys in client-side code. You should never do this in production
@@ -31,7 +31,7 @@ function App() {
     getBlockNumber();
   });
 
-  return <Skeleton /> ;
+  return <Home /> ;
 }
 
 export default App;
