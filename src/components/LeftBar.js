@@ -31,7 +31,7 @@ export function LeftBar() {
 
       <div>
         <h4 id="calban">
-          <Link href="/search/eee">log event calendar</Link>
+          <Link>log event calendar</Link>
         </h4>
         <table className="cal">
           <tbody>
@@ -50,130 +50,82 @@ export function LeftBar() {
               <td className="">25</td>
               <td className="">26</td>
               <td className="today ">
-                <Link href="//orangecounty.chainslist.org/search/eee?sale_date=2023-01-27">
-                  27
-                </Link>
+                <Link>27</Link>
               </td>
               <td className="">
-                <Link href="//orangecounty.chainslist.org/search/eee?sale_date=2023-01-28">
-                  28
-                </Link>
+                <Link>28</Link>
               </td>
               <td className="">
-                <Link href="//orangecounty.chainslist.org/search/eee?sale_date=2023-01-29">
-                  29
-                </Link>
+                <Link>29</Link>
               </td>
             </tr>
             <tr>
               <td className="">
-                <Link href="//orangecounty.chainslist.org/search/eee?sale_date=2023-01-30">
-                  30
-                </Link>
+                <Link>30</Link>
               </td>
               <td className="">
-                <Link href="//orangecounty.chainslist.org/search/eee?sale_date=2023-01-31">
-                  31
-                </Link>
+                <Link>31</Link>
               </td>
               <td className="">
-                <Link href="//orangecounty.chainslist.org/search/eee?sale_date=2023-02-01">
-                  1
-                </Link>
+                <Link>1</Link>
               </td>
               <td className="">
-                <Link href="//orangecounty.chainslist.org/search/eee?sale_date=2023-02-02">
-                  2
-                </Link>
+                <Link>2</Link>
               </td>
               <td className="">
-                <Link href="//orangecounty.chainslist.org/search/eee?sale_date=2023-02-03">
-                  3
-                </Link>
+                <Link>3</Link>
               </td>
               <td className="">
-                <Link href="//orangecounty.chainslist.org/search/eee?sale_date=2023-02-04">
-                  4
-                </Link>
+                <Link>4</Link>
               </td>
               <td className="">
-                <Link href="//orangecounty.chainslist.org/search/eee?sale_date=2023-02-05">
-                  5
-                </Link>
+                <Link>5</Link>
               </td>
             </tr>
             <tr>
               <td className="">
-                <Link href="//orangecounty.chainslist.org/search/eee?sale_date=2023-02-06">
-                  6
-                </Link>
+                <Link>6</Link>
               </td>
               <td className="">
-                <Link href="//orangecounty.chainslist.org/search/eee?sale_date=2023-02-07">
-                  7
-                </Link>
+                <Link>7</Link>
               </td>
               <td className="">
-                <Link href="//orangecounty.chainslist.org/search/eee?sale_date=2023-02-08">
-                  8
-                </Link>
+                <Link>8</Link>
               </td>
               <td className="">
-                <Link href="//orangecounty.chainslist.org/search/eee?sale_date=2023-02-09">
-                  9
-                </Link>
+                <Link>9</Link>
               </td>
               <td className="">
-                <Link href="//orangecounty.chainslist.org/search/eee?sale_date=2023-02-10">
-                  10
-                </Link>
+                <Link>10</Link>
               </td>
               <td className="">
-                <Link href="//orangecounty.chainslist.org/search/eee?sale_date=2023-02-11">
-                  11
-                </Link>
+                <Link>11</Link>
               </td>
               <td className="">
-                <Link href="//orangecounty.chainslist.org/search/eee?sale_date=2023-02-12">
-                  12
-                </Link>
+                <Link>12</Link>
               </td>
             </tr>
             <tr>
               <td className="">
-                <Link href="//orangecounty.chainslist.org/search/eee?sale_date=2023-02-13">
-                  13
-                </Link>
+                <Link>13</Link>
               </td>
               <td className="">
-                <Link href="//orangecounty.chainslist.org/search/eee?sale_date=2023-02-14">
-                  14
-                </Link>
+                <Link>14</Link>
               </td>
               <td className="">
-                <Link href="//orangecounty.chainslist.org/search/eee?sale_date=2023-02-15">
-                  15
-                </Link>
+                <Link>15</Link>
               </td>
               <td className="">
-                <Link href="//orangecounty.chainslist.org/search/eee?sale_date=2023-02-16">
-                  16
-                </Link>
+                <Link>16</Link>
               </td>
               <td className="">
-                <Link href="//orangecounty.chainslist.org/search/eee?sale_date=2023-02-17">
-                  17
-                </Link>
+                <Link>17</Link>
               </td>
               <td className="">
-                <Link href="//orangecounty.chainslist.org/search/eee?sale_date=2023-02-18">
-                  18
-                </Link>
+                <Link>18</Link>
               </td>
               <td className="">
-                <Link href="//orangecounty.chainslist.org/search/eee?sale_date=2023-02-19">
-                  19
-                </Link>
+                <Link>19</Link>
               </td>
             </tr>
           </tbody>

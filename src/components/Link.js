@@ -2,11 +2,11 @@ import * as React from 'react';
 
 export function Link(props) {
   const preventClick = (ev) => {
-    ev.preventDefault()
-  }
+    ev.preventDefault();
+  };
 
   return (
-    <a href="##" className={props.className} onClick={preventClick}>
+    <a href="##" onClick={preventClick} {...props}>
       {props.children}
     </a>
   );
