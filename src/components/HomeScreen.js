@@ -27,7 +27,7 @@ export function HomeScreen(props) {
                   {blocks.map((block) => {
                     return (
                       <li>
-                        <Link>
+                        <Link href={`/block/${block.number}`}>
                           <span className="txt">
                             {block.number}
                             <sup className="c"></sup>

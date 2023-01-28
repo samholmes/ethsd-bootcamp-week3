@@ -1,12 +1,13 @@
 import * as React from 'react';
 
 export function Link(props) {
-  const preventClick = (ev) => {
-    ev.preventDefault();
+  const handleClick = (ev) => {
+    if (props.href == null) ev.preventDefault();
+    if (props.onClick != null) props.onClick(ev);
   };
 
   return (
-    <a href="##" onClick={preventClick} {...props}>
+    <a {...props} href={`#${props.href ?? Math.random()}`} onClick={handleClick}>
       {props.children}
     </a>
   );
