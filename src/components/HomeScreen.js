@@ -26,7 +26,7 @@ export function HomeScreen(props) {
                 <ul id="ccc0">
                   {blocks.map((block) => {
                     return (
-                      <li>
+                      <li key={block.hash}>
                         <Link href={`/block/${block.number}`}>
                           <span className="txt">
                             {block.number}
