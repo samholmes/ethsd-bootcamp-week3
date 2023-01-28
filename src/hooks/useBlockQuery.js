@@ -16,7 +16,11 @@ export const useBlockQuery = (count) => {
       promises.push(alchemy.core.getBlockWithTransactions(blockNumber - i));
     }
 
+
     const responses = await Promise.all(promises);
+
+    console.log(responses)
+
     for (const response of responses) {
       blocks.push(response);
     }

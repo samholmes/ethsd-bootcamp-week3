@@ -1,3 +1,4 @@
+import { formatDistanceToNow } from 'date-fns';
 import { useAlchemy } from '../hooks/useAlchemy';
 import { useAsyncValue } from '../hooks/useAsyncValue';
 import { Link } from './Link';
@@ -14,10 +15,8 @@ export function TxScreen(props) {
 
   if (tx == null) return null;
 
-  const txTime = new Date(0);
-  const txTimeAgo = '21 hours ago';
-
-  console.log(tx);
+  const time = new Date(0);
+  const timeAgo = formatDistanceToNow(time);
 
   return (
     <div className="posting bd-can-hover desktop w1024 cl-not-small-device cl-landscape">
@@ -185,13 +184,13 @@ export function TxScreen(props) {
               </div>
 
               <p id="display-date" className="postinginfo">
-                Minded{' '}
+                Mined{' '}
                 <time
                   className="date timeago"
-                  datetime={txTime.toISOString()}
-                  title={txTime.toISOString()}
+                  datetime={time.toISOString()}
+                  title={time.toISOString()}
                 >
-                  about {txTimeAgo}
+                  about {timeAgo}
                 </time>
               </p>
 
@@ -266,13 +265,13 @@ export function TxScreen(props) {
             <div className="postinginfos">
               <p className="postinginfo">block height: {tx.number}</p>
               <p className="postinginfo">
-                minded:{' '}
+                mined:{' '}
                 <time
                   className="date timeago"
-                  dateTime={txTime.toISOString()}
-                  title={txTime.toISOString()}
+                  dateTime={time.toISOString()}
+                  title={time.toISOString()}
                 >
-                  about {txTimeAgo}
+                  about {timeAgo}
                 </time>
               </p>
 

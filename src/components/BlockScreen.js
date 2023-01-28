@@ -1,10 +1,11 @@
+import { formatDistanceToNow } from 'date-fns';
 import { Link } from './Link';
 
 export function BlockScreen(props) {
   const { block, onClickExit, onClickNext, onClickPrev } = props;
 
-  const blockTime = new Date(block.timestamp);
-  const blockTimeAgo = '21 hours ago';
+  const time = new Date(block.timestamp * 1000);
+  const timeAgo = formatDistanceToNow(time);
 
   return (
     <div className="posting bd-can-hover desktop w1024 cl-not-small-device cl-landscape">
@@ -172,13 +173,13 @@ export function BlockScreen(props) {
               </div>
 
               <p id="display-date" className="postinginfo">
-                Minded{' '}
+                Mined{' '}
                 <time
                   className="date timeago"
-                  dateTime={blockTime.toISOString()}
-                  title={blockTime.toISOString()}
+                  dateTime={time.toISOString()}
+                  title={time.toISOString()}
                 >
-                  about {blockTimeAgo}
+                  about {timeAgo}
                 </time>
               </p>
 
@@ -260,13 +261,13 @@ export function BlockScreen(props) {
             <div className="postinginfos">
               <p className="postinginfo">block height: {block.number}</p>
               <p className="postinginfo">
-                minded:{' '}
+                mined:{' '}
                 <time
                   className="date timeago"
-                  datetime={blockTime.toISOString()}
-                  title={blockTime.toISOString()}
+                  datetime={time.toISOString()}
+                  title={time.toISOString()}
                 >
-                  about {blockTimeAgo}
+                  about {timeAgo}
                 </time>
               </p>
 
