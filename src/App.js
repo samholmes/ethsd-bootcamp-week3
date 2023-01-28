@@ -6,6 +6,7 @@ import { BlockScreen } from './components/BlockScreen';
 import { useBlockQuery } from './hooks/useBlockQuery';
 import { useMemo, useState } from 'react';
 import { useUriHash } from './hooks/useUriHash';
+import { TxScreen } from './components/TxScreen';
 
 // Refer to the README doc for more information about using API
 // keys in client-side code. You should never do this in production
@@ -31,27 +32,41 @@ function App() {
   if (blockQueryError) console.error(blockQueryError);
 
   const selectedBlock = useMemo(() => {
-    if (!query.includes('/block/')) return
-    const queryBlockHeight = query.replace('/block/', '')
+    if (!query.includes('/block/')) return;
+    const queryBlockHeight = query.replace('/block/', '');
     return blocks.find((block) => block.number.toString() === queryBlockHeight);
+  }, [query, blocks]);
+  const selectedTx = useMemo(() => {
+    if (!query.includes('/tx/')) return;
+    return query.replace('/tx/', '');
   }, [query, blocks]);
 
   const handleClickExit = () => {
-    window.location.hash = ""
+    window.location.hash = '';
   };
   const handleClickNext = () => {
     const height = parseInt(query) + 1;
-    window.location.hash = "#" + height
+    window.location.hash = '#' + height;
   };
   const handleClickPrev = () => {
     const height = parseInt(query) - 1;
-    window.location.hash = "#" + height
+    window.location.hash = '#' + height;
   };
 
   if (selectedBlock != null)
     return (
       <BlockScreen
         block={selectedBlock}
+        onClickExit={handleClickExit}
+        onClickNext={handleClickNext}
+        onClickPrev={handleClickPrev}
+      />
+    );
+  if (selectedTx != null)
+    return (
+      <TxScreen
+        alchemy={alchemy}
+        txHash={selectedTx}
         onClickExit={handleClickExit}
         onClickNext={handleClickNext}
         onClickPrev={handleClickPrev}
