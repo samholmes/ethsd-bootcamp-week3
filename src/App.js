@@ -2,7 +2,7 @@ import { Alchemy, Network } from 'alchemy-sdk';
 
 import './App.css';
 import { Home } from './components/Home';
-import { useBlockItems } from './hooks/useBlockItems';
+import { useBlockQuery } from './hooks/useBlockQuery';
 
 // Refer to the README doc for more information about using API
 // keys in client-side code. You should never do this in production
@@ -20,12 +20,11 @@ const settings = {
 const alchemy = new Alchemy(settings);
 
 function App() {
-  const [blockItems, blockItemsError] = useBlockItems(alchemy);
+  const [blocks, blockQueryError] = useBlockQuery(alchemy);
 
-  console.log(blockItems);
-  if (blockItemsError) console.error(blockItemsError);
+  if (blockQueryError) console.error(blockQueryError);
 
-  return <Home blockItems={blockItems} />;
+  return <Home blocks={blocks} />;
 }
 
 export default App;

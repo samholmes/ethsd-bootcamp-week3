@@ -4,7 +4,7 @@ import { RightBar } from './RightBar';
 import { TopBan } from './Topban';
 
 export function Home(props) {
-  const { blockItems } = props;
+  const { blocks } = props;
 
   return (
     <div className="wrapper">
@@ -23,16 +23,16 @@ export function Home(props) {
             </h3>
             <div className="cats">
               <ul id="ccc0">
-                {blockItems.map((item) => {
+                {blocks.map((block) => {
                   return (
                     <li>
                       <Link>
                         <span className="txt">
-                          {item.blockNumber}
+                          {block.number}
                           <sup className="c"></sup>
                         </span>
                         <span className="txt">
-                          {item.hash}
+                          {block.hash}
                           <sup className="c"></sup>
                         </span>
                       </Link>
