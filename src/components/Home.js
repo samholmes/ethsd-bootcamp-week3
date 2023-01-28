@@ -3,13 +3,9 @@ import { LeftBar } from './LeftBar';
 import { RightBar } from './RightBar';
 import { TopBan } from './Topban';
 
-const blockItems = [
-  { blockNumber: 12345, hash: 'abcdef' },
-  { blockNumber: 12345, hash: 'aabcdefabcdefbcdef' },
-  { blockNumber: 12345, hash: 'abcdef' }
-];
+export function Home(props) {
+  const { blockItems } = props;
 
-export function Home() {
   return (
     <div className="wrapper">
       <section className="page-container">
@@ -26,7 +22,7 @@ export function Home() {
               </Link>
             </h3>
             <div className="cats">
-              <ul id="ccc0" className="left">
+              <ul id="ccc0">
                 {blockItems.map((item) => {
                   return (
                     <li>

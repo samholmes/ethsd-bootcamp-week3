@@ -1,9 +1,8 @@
 import { Alchemy, Network } from 'alchemy-sdk';
-import { useEffect, useState } from 'react';
-
 
 import './App.css';
 import { Home } from './components/Home';
+import { useBlockItems } from './hooks/useBlockItems';
 
 // Refer to the README doc for more information about using API
 // keys in client-side code. You should never do this in production
@@ -21,17 +20,12 @@ const settings = {
 const alchemy = new Alchemy(settings);
 
 function App() {
-  const [blockNumber, setBlockNumber] = useState();
+  const [blockItems, blockItemsError] = useBlockItems(alchemy);
 
-  useEffect(() => {
-    async function getBlockNumber() {
-      setBlockNumber(await alchemy.core.getBlockNumber());
-    }
+  console.log(blockItems);
+  if (blockItemsError) console.error(blockItemsError);
 
-    getBlockNumber();
-  });
-
-  return <Home /> ;
+  return <Home blockItems={blockItems} />;
 }
 
 export default App;
