@@ -1,4 +1,3 @@
-
 import './App.css';
 import { HomeScreen } from './components/HomeScreen';
 import { BlockScreen } from './components/BlockScreen';
@@ -6,7 +5,6 @@ import { useBlockQuery } from './hooks/useBlockQuery';
 import { useMemo } from 'react';
 import { useUriHash } from './hooks/useUriHash';
 import { TxScreen } from './components/TxScreen';
-
 
 function App() {
   const uriHash = useUriHash();
@@ -23,18 +21,18 @@ function App() {
   const selectedTx = useMemo(() => {
     if (!query.includes('/tx/')) return;
     return query.replace('/tx/', '');
-  }, [query, blocks]);
+  }, [query]);
 
   const handleClickExit = () => {
     window.location.hash = '';
   };
   const handleClickNext = () => {
-    if (selectedBlock == null) return
+    if (selectedBlock == null) return;
     const height = selectedBlock.number + 1;
     window.location.hash = `#/block/${height}`;
   };
   const handleClickPrev = () => {
-    if (selectedBlock == null) return
+    if (selectedBlock == null) return;
     const height = selectedBlock.number - 1;
     window.location.hash = `#/block/${height}`;
   };
