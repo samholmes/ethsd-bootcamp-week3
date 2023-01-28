@@ -29,10 +29,6 @@ const items = [
 ];
 
 export function RightBar() {
-  const handleClick = () => {
-    alert('Other chains not supported yet.');
-  };
-
   return (
     <div id="rightbar">
       <LangLinks />
