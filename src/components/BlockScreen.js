@@ -175,7 +175,7 @@ export function BlockScreen(props) {
                 Minded{' '}
                 <time
                   className="date timeago"
-                  datetime={blockTime.toISOString()}
+                  dateTime={blockTime.toISOString()}
                   title={blockTime.toISOString()}
                 >
                   about {blockTimeAgo}
