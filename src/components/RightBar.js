@@ -39,7 +39,7 @@ export function RightBar() {
           <ul className="acitem">
             {items.map((item) => {
               return (
-                <li className="s">
+                <li className="s" key={item}>
                   <Link>
                     {item}
                   </Link>
