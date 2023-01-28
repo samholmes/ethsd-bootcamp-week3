@@ -1,7 +1,7 @@
 import { useAsyncValue } from './useAsyncValue';
 import {useAlchemy} from './useAlchemy'
 
-export const useBlockQuery = () => {
+export const useBlockQuery = (count) => {
   const alchemy = useAlchemy()
   const [blockNumber] = useAsyncValue(
     async () => await alchemy.core.getBlockNumber(),
@@ -12,7 +12,7 @@ export const useBlockQuery = () => {
 
     const blocks = [];
     const promises = [];
-    for (let i = 0; i < 32 && blockNumber - i >= 0; ++i) {
+    for (let i = 0; i < count && blockNumber - i >= 0; ++i) {
       promises.push(alchemy.core.getBlock(blockNumber - i));
     }
 

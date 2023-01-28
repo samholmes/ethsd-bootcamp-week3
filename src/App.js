@@ -10,7 +10,7 @@ function App() {
   const uriHash = useUriHash();
   const query = uriHash.slice(1);
 
-  const [blocks, blockQueryError] = useBlockQuery();
+  const [blocks, blockQueryError] = useBlockQuery(38);
   if (blockQueryError) console.error(blockQueryError);
 
   const selectedBlock = useMemo(() => {
