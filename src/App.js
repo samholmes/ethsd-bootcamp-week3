@@ -16,7 +16,11 @@ function App() {
   const selectedBlock = useMemo(() => {
     if (!query.includes('/block/')) return;
     const queryForBlock = query.replace('/block/', '');
-    return blocks.find((block) => block.number.toString() === queryForBlock || block.hash === queryForBlock);
+    return blocks.find(
+      (block) =>
+        block.number.toString() === queryForBlock ||
+        block.hash === queryForBlock
+    );
   }, [query, blocks]);
   const selectedTx = useMemo(() => {
     if (!query.includes('/tx/')) return;
@@ -47,14 +51,7 @@ function App() {
       />
     );
   if (selectedTx != null)
-    return (
-      <TxScreen
-        txHash={selectedTx}
-        onClickExit={handleClickExit}
-        onClickNext={handleClickNext}
-        onClickPrev={handleClickPrev}
-      />
-    );
+    return <TxScreen txHash={selectedTx} onClickExit={handleClickExit} />;
 
   return <HomeScreen blocks={blocks} />;
 }

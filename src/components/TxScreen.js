@@ -4,13 +4,14 @@ import { useAsyncValue } from '../hooks/useAsyncValue';
 import { Link } from './Link';
 
 export function TxScreen(props) {
-  const { txHash, onClickExit, onClickNext, onClickPrev } = props;
+  const { txHash, onClickExit } = props;
   const alchemy = useAlchemy();
 
   const [tx, txError] = useAsyncValue(async () => {
     const response = await alchemy.core.getTransactionReceipt(txHash);
     return response;
   }, []);
+
   if (txError) console.error(txError);
 
   if (tx == null) return null;
@@ -84,25 +85,6 @@ export function TxScreen(props) {
 
         <section className="body">
           <header className="dateReplyBar">
-            <div className="prevnext-sec">
-              <div className="prevnext js-only show-prevnext">
-                <Link className="prev" onClick={onClickPrev}>
-                  ◀ prev{' '}
-                </Link>
-                <Link
-                  className="backup"
-                  title="back to search"
-                  onClick={onClickExit}
-                >
-                  ▲
-                </Link>
-                <Link className="next" onClick={onClickNext}>
-                  {' '}
-                  next ▶{' '}
-                </Link>
-              </div>
-            </div>
-
             <div className="reply-button-row">
               <div className="actions-combo">
                 <button role="button" className="reply-button js-only">
@@ -209,45 +191,6 @@ export function TxScreen(props) {
             </span>
           </h1>
           <section className="userbody">
-            <figure className="iw multiimage">
-              {/* <div id="thumbs">
-                <Link
-                  id="1_thumb_kK2M6p7hP0F_0jm0pO"
-                  className="thumb"
-                  data-imgid="kK2M6p7hP0F_0jm0pO"
-                  title="1"
-                >
-                  <img
-                    className="selected"
-                    alt="1"
-                  />
-                </Link>
-                <Link
-                  id="2_thumb_8flCzKX78Ry_0jm0pO"
-                  className="thumb"
-                  data-imgid="8flCzKX78Ry_0jm0pO"
-                  title="2"
-                >
-                  <img
-                    alt="2"
-                  />
-                </Link>
-              </div> */}
-            </figure>
-
-            <div className="mapAndAttrs">
-              {Object.entries(tx).map(([key, value]) => {
-                if (typeof value !== 'string' && typeof value !== 'number')
-                  return null;
-                return (
-                  <div className="mapbox" key={key}>
-                    <div className="mapaddress">{key}:</div>
-                    <p className="attrgroup">{value}</p>
-                  </div>
-                );
-              })}
-            </div>
-
             <section id="postingbody">
               <div className="print-information print-qrcode-container">
                 {/* <p className="print-qrcode-label">QR Code Link to This Post</p> */}
@@ -255,7 +198,67 @@ export function TxScreen(props) {
                   <canvas width="200" height="200"></canvas>
                 </div>
               </div>
-              <h3>This is a transaction!</h3>
+              <h2>Details</h2>
+              <div>
+                <h3>to:</h3>
+                <p>{tx.to.toString()}</p>
+              </div>
+              <div>
+                <h3>from:</h3>
+                <p>{tx.from.toString()}</p>
+              </div>
+              <div>
+                <h3>contract address:</h3>
+                <p>{tx.contractAddress}</p>
+              </div>
+              <div>
+                <h3>transaction index:</h3>
+                <p>{tx.transactionIndex.toString()}</p>
+              </div>
+              <div>
+                <h3>gas used:</h3>
+                <p>{tx.gasUsed.toString()}</p>
+              </div>
+              <div>
+                <h3>logs bloom:</h3>
+                <p>{tx.logsBloom.toString()}</p>
+              </div>
+              <div>
+                <h3>block hash:</h3>
+                <p>{tx.blockHash.toString()}</p>
+              </div>
+              <div>
+                <h3>transaction hash:</h3>
+                <p>{tx.transactionHash.toString()}</p>
+              </div>
+              <div>
+                <h3>block number:</h3>
+                <p>{tx.blockNumber.toString()}</p>
+              </div>
+              <div>
+                <h3>confirmations :</h3>
+                <p>{tx.confirmations.toString()}</p>
+              </div>
+              <div>
+                <h3>cumulative gas used:</h3>
+                <p>{tx.cumulativeGasUsed.toString()}</p>
+              </div>
+              <div>
+                <h3>effective gas price:</h3>
+                <p>{tx.effectiveGasPrice.toString()}</p>
+              </div>
+              <div>
+                <h3>status :</h3>
+                <p>{tx.status.toString()}</p>
+              </div>
+              <div>
+                <h3>type :</h3>
+                <p>{tx.type.toString()}</p>
+              </div>
+              <div>
+                <h3>byzantium :</h3>
+                <p>{tx.byzantium.toString()}</p>
+              </div>
             </section>
 
             <ul className="notices">
