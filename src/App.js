@@ -15,8 +15,8 @@ function App() {
 
   const selectedBlock = useMemo(() => {
     if (!query.includes('/block/')) return;
-    const queryBlockHeight = query.replace('/block/', '');
-    return blocks.find((block) => block.number.toString() === queryBlockHeight);
+    const queryForBlock = query.replace('/block/', '');
+    return blocks.find((block) => block.number.toString() === queryForBlock || block.hash === queryForBlock);
   }, [query, blocks]);
   const selectedTx = useMemo(() => {
     if (!query.includes('/tx/')) return;

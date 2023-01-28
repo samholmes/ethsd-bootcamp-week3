@@ -224,25 +224,57 @@ export function BlockScreen(props) {
               </div> */}
             </figure>
 
-            <div className="mapAndAttrs">
-              {Object.entries(block).map(([key, value]) => {
-                if (typeof value !== 'string' && typeof value !== 'number')
-                  return null;
-                return (
-                  <div className="mapbox" key={key}>
-                    <div className="mapaddress">{key}:</div>
-                    <p className="attrgroup">{value}</p>
-                  </div>
-                );
-              })}
-            </div>
-
             <section id="postingbody">
               <div className="print-information print-qrcode-container">
                 {/* <p className="print-qrcode-label">QR Code Link to This Post</p> */}
                 <div className="print-qrcode">
                   <canvas width="200" height="200"></canvas>
                 </div>
+              </div>
+              <h2>Details</h2>
+              <div>
+                <h3>hash:</h3>
+                <p>{block.hash}</p>
+              </div>
+              <div>
+                <h3>parent hash:</h3>
+                <p>
+                  <Link href={`/block/${block.parentHash}`}>
+                    {block.parentHash}
+                  </Link>
+                </p>
+              </div>
+              <div>
+                <h3>block height:</h3>
+                <p>{block.number}</p>
+              </div>
+              <div>
+                <h3>timestamp:</h3>
+                <p>{block.timestamp}</p>
+              </div>
+              <div>
+                <h3>difficulty:</h3>
+                <p>{block.difficulty.toString()}</p>
+              </div>
+              <div>
+                <h3>gas limit:</h3>
+                <p>{block.gasLimit.toString()}</p>
+              </div>
+              <div>
+                <h3>gas used:</h3>
+                <p>{block.gasUsed.toString()}</p>
+              </div>
+              <div>
+                <h3>miner:</h3>
+                <p>{block.miner}</p>
+              </div>
+              <div>
+                <h3>extra data:</h3>
+                <p>{block.extraData}</p>
+              </div>
+              <div>
+                <h3>base fee per gas:</h3>
+                <p>{block.baseFeePerGas.toString()}</p>
               </div>
               <h2>transactions</h2>
               {block.transactions.map((tx) => {
