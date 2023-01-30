@@ -15,3 +15,24 @@
   clear: left;
   word-wrap: break-word;
 }
+
+/* posting */
+
+.json-form .json-form-group.posting-title-subform {
+  flex-direction: row;
+}
+
+body.post .json-form .posting-title-subform .json-form-item.PostingTitle {
+  flex-grow: 1;
+}
+
+.json-form .title .posting-title, body.old-form.post .title .posting-title, body.both-form.post #old-edit .title .posting-title {
+  flex-grow: 1;
+}
+
+.json-form-group.json-form-group-container.location-address-fields {
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-orient: horizontal;
+}

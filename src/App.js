@@ -5,6 +5,7 @@ import { useBlockQuery } from './hooks/useBlockQuery';
 import { useMemo } from 'react';
 import { useUriHash } from './hooks/useUriHash';
 import { TxScreen } from './components/TxScreen';
+import { CreateScreen } from './components/CreateScreen';
 
 function App() {
   const uriHash = useUriHash();
@@ -41,6 +42,9 @@ function App() {
     window.location.hash = `#/block/${height}`;
   };
 
+  if (query === '/create') {
+    return <CreateScreen onClickExit={handleClickExit} />;
+  }
   if (selectedBlock != null)
     return (
       <BlockScreen

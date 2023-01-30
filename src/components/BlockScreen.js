@@ -1,5 +1,6 @@
 import { formatDistanceToNow } from 'date-fns';
 import { Link } from './Link';
+import { UserLinks } from './UserLinks';
 
 export function BlockScreen(props) {
   const { block, onClickExit, onClickNext, onClickPrev } = props;
@@ -33,44 +34,8 @@ export function BlockScreen(props) {
             </ul>
           </nav>
 
-          <div className="userlinks">
-            <ul className="user-actions">
-              <li className="user post">
-                <Link>post</Link>
-              </li>
-              <li className="user account">
-                <Link>account</Link>
-              </li>
-            </ul>
-            <ul className="user-favs-discards">
-              <li className="user">
-                <div className="favorites">
-                  <Link className="favlink">
-                    <span
-                      className="icon icon-star fav"
-                      aria-hidden="true"
-                    ></span>
-                    <span className="fav-number">13</span>
-                    <span className="fav-label"> favorites</span>
-                  </Link>
-                </div>
-              </li>
-              <li className="user discards">
-                <div className="to-banish-page">
-                  <Link className="to-banish-page-link">
-                    <span
-                      className="icon icon-trash red"
-                      aria-hidden="true"
-                    ></span>
-                    <span className="banished_count"></span>
-                    <span className="discards-label"> hidden</span>
-                  </Link>
-                </div>
-              </li>
-            </ul>
-          </div>
+          <UserLinks />
         </header>
-
         <section className="body">
           <header className="dateReplyBar">
             <div className="prevnext-sec">

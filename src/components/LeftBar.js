@@ -9,7 +9,7 @@ export function LeftBar() {
 
       <ul id="postlks">
         <li>
-          <Link id="post">create a transaction</Link>
+          <Link id="post" href="/create">create a transaction</Link>
         </li>
         <li>
           <Link>my account</Link>
