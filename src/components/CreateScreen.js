@@ -9,13 +9,16 @@ const CHAIN_ID = 137;
 const { REACT_APP_PRIVATE_KEY } = process.env;
 
 export function CreateScreen(props) {
-  const { onClickExit } = props;
   const alchemy = useAlchemy();
   const wallet = useMemo(() => {
     const wallet = new Wallet(REACT_APP_PRIVATE_KEY, alchemy);
     console.log(wallet);
     return wallet;
   }, [alchemy]);
+
+  const handleClickExit = () => {
+    window.location.hash = '';
+  };
 
   const toAddressInput = useInputValue(
     ''
@@ -41,8 +44,8 @@ export function CreateScreen(props) {
         gasLimitInput.value ? gasLimitInput.value : '21000'
       );
       const gasPrice = Utils.parseUnits(
-        gasPriceInput.value ? gasPriceInput.value : '1'
-        , 'gwei'
+        gasPriceInput.value ? gasPriceInput.value : '1',
+        'gwei'
       );
       // const maxPriorityFeePerGas = Utils.parseUnits(
       //   maxPriorityFeePerGasInput.value ? maxPriorityFeePerGasInput.value : '0',
@@ -83,7 +86,11 @@ export function CreateScreen(props) {
     <div className="post new-form desktop w1024">
       <article className="page-container">
         <header className="global-header wide">
-          <Link className="header-logo" name="logoLink" onClick={onClickExit}>
+          <Link
+            className="header-logo"
+            name="logoLink"
+            onClick={handleClickExit}
+          >
             CL
           </Link>
 

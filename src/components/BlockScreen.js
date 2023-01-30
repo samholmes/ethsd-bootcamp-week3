@@ -3,7 +3,11 @@ import { Link } from './Link';
 import { UserLinks } from './UserLinks';
 
 export function BlockScreen(props) {
-  const { block, onClickExit, onClickNext, onClickPrev } = props;
+  const { block, onClickPrev } = props;
+
+  const handleClickExit = () => {
+    window.location.hash = '';
+  };
 
   const time = new Date(block.timestamp * 1000);
   const timeAgo = formatDistanceToNow(time);
@@ -13,7 +17,11 @@ export function BlockScreen(props) {
       <section className="page-container">
         <div className="bglogo"></div>
         <header className="global-header wide">
-          <Link className="header-logo" name="logoLink" onClick={onClickExit}>
+          <Link
+            className="header-logo"
+            name="logoLink"
+            onClick={handleClickExit}
+          >
             CL
           </Link>
 
@@ -21,7 +29,7 @@ export function BlockScreen(props) {
             <ul className="breadcrumbs">
               <li className="crumb area">
                 <p>
-                  <Link onClick={onClickExit}>polygon MATIC</Link>
+                  <Link onClick={handleClickExit}>polygon MATIC</Link>
                   <span className="breadcrumb-arrow">&gt;</span>
                 </p>
               </li>
@@ -46,11 +54,11 @@ export function BlockScreen(props) {
                 <Link
                   className="backup"
                   title="back to search"
-                  onClick={onClickExit}
+                  onClick={handleClickExit}
                 >
                   ▲
                 </Link>
-                <Link className="next" onClick={onClickNext}>
+                <Link className="next" onClick={handleClickExit}>
                   {' '}
                   next ▶{' '}
                 </Link>

@@ -43,19 +43,17 @@ function App() {
   };
 
   if (query === '/create') {
-    return <CreateScreen onClickExit={handleClickExit} />;
+    return <CreateScreen />;
   }
   if (selectedBlock != null)
     return (
       <BlockScreen
         block={selectedBlock}
-        onClickExit={handleClickExit}
         onClickNext={handleClickNext}
         onClickPrev={handleClickPrev}
       />
     );
-  if (selectedTx != null)
-    return <TxScreen txHash={selectedTx} onClickExit={handleClickExit} />;
+  if (selectedTx != null) return <TxScreen txHash={selectedTx} />;
 
   return <HomeScreen blocks={blocks} />;
 }

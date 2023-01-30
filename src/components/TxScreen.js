@@ -5,7 +5,7 @@ import { Link } from './Link';
 import { UserLinks } from './UserLinks';
 
 export function TxScreen(props) {
-  const { txHash, onClickExit } = props;
+  const { txHash } = props;
   const alchemy = useAlchemy();
 
   const [tx, txError] = useAsyncValue(async () => {
@@ -20,12 +20,20 @@ export function TxScreen(props) {
   const time = new Date(0);
   const timeAgo = formatDistanceToNow(time);
 
+  const handleClickExit = () => {
+    window.location.hash = '';
+  };
+
   return (
     <div className="posting bd-can-hover desktop w1024 cl-not-small-device cl-landscape">
       <section className="page-container">
         <div className="bglogo"></div>
         <header className="global-header wide">
-          <Link className="header-logo" name="logoLink" onClick={onClickExit}>
+          <Link
+            className="header-logo"
+            name="logoLink"
+            onClick={handleClickExit}
+          >
             CL
           </Link>
 
@@ -33,7 +41,7 @@ export function TxScreen(props) {
             <ul className="breadcrumbs">
               <li className="crumb area">
                 <p>
-                  <Link onClick={onClickExit}>polygon MATIC</Link>
+                  <Link onClick={handleClickExit}>polygon MATIC</Link>
                   <span className="breadcrumb-arrow">&gt;</span>
                 </p>
               </li>
