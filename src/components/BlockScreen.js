@@ -20,7 +20,7 @@ export function BlockScreen(props) {
             <ul className="breadcrumbs">
               <li className="crumb area">
                 <p>
-                  <Link onClick={onClickExit}>ethereum ETH</Link>
+                  <Link onClick={onClickExit}>polygon MATIC</Link>
                   <span className="breadcrumb-arrow">&gt;</span>
                 </p>
               </li>
